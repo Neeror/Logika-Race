@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="starsCanvas"></canvas>
+    <div class="background-image">
+        <img src="field_image_pia14293-amended1.jpg"/>
+    </div>
+
+    
+    <div class="ui-layer">
+        <div class="title-group">
+            <h1 class="main-title">МАРС</h1>
+            <p class="subtitle">ЧЕРВОНА ПЛАНЕТА</p>
+        </div>
+
+        <div id="start-zone" class="quest-container">
+            <p class="status-text">> СИСТЕМА ОЧІКУЄ КОМАНДИ</p>
+            <button class="action-btn" onclick="startQuest()">ПОЧАТИ МІСІЮ</button>
+        </div>
+
+        <div id="mission-box" class="hidden">
+            <header class="terminal-header">
+                <span class="terminal-title">MARS TERMINAL v.1.0</span>
+                <span id="status-line" class="blink">CONNECTED</span>
+            </header>
+            
+            <div class="terminal-layout">
+                <aside class="sidebar-stats">
+                    <div class="stat-item">
+                        <label>OXYGEN (O₂)</label>
+                        <div class="bar"><div id="ox-bar" style="width: 100%"></div></div>
+                    </div>
+                    <div class="stat-item">
+                        <label>ENERGY (⚡)</label>
+                        <div class="bar"><div id="en-bar" style="width: 80%"></div></div>
+                    </div>
+                    <div class="stat-item">
+                        <label>RADIATION</label>
+                        <div class="bar"><div id="rad-bar" style="width: 10%"></div></div>
+                    </div>
+
+                    <div class="radar">
+                        <div class="radar-line"></div>
+                        <div class="radar-point"></div>
+                    </div>
+                </aside>
+
+                <div class="main-terminal">
+                    <div id="mission-description"></div>
+                    <div id="choices"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

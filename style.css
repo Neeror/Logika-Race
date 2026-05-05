@@ -1,0 +1,220 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('mars.jpg'); 
+    background-size: cover;
+    background-position: center bottom;
+    z-index: 1;
+    filter: brightness(0.6);
+}
+
+#starsCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.ui-layer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 10vh 0;
+    box-sizing: border-box;
+}
+
+.main-title {
+    font-size: clamp(40px, 10vw, 100px);
+    font-weight: 100;
+    letter-spacing: 40px;
+    margin: 0;
+    transition: all 0.8s ease;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.subtitle {
+    color: #ff4d00;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.quest-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.status-text {
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#mission-box {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 950px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 77, 0, 0.3);
+    padding: 30px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 77, 0, 0.2);
+    padding-bottom: 10px;
+    color: #ff4d00;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.terminal-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.sidebar-stats {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 20px;
+}
+
+.stat-item {
+    margin-bottom: 25px;
+}
+
+.stat-item label {
+    font-size: 10px;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.bar div {
+    height: 100%;
+    transition: width 1s ease, background 0.5s ease;
+}
+
+#ox-bar { background: #00f2ff; box-shadow: 0 0 10px #00f2ff; }
+#en-bar { background: #ffcc00; box-shadow: 0 0 10px #ffcc00; }
+#rad-bar { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+
+.radar {
+    width: 130px;
+    height: 130px;
+    border: 1px solid rgba(255, 77, 0, 0.3);
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    background: radial-gradient(circle, rgba(255, 77, 0, 0.05) 0%, transparent 80%);
+}
+
+.radar-line {
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff4d00);
+    top: 50%;
+    left: 50%;
+    transform-origin: left;
+    animation: rotate 4s linear infinite;
+}
+
+#mission-description {
+    font-size: 19px;
+    line-height: 1.7;
+    min-height: 180px;
+    white-space: pre-wrap; 
+    color: #e0e0e0;
+}
+
+#choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    background: rgba(255, 77, 0, 0.05);
+    border: 1px solid #ff4d00;
+    color: #ff4d00;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.action-btn:hover {
+    background: #ff4d00;
+    color: black;
+    box-shadow: 0 0 25px #ff4d00;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
